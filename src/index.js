@@ -13,6 +13,14 @@ dotenv.config({
 
 
 connectDB()
+.then(()=>{
+    app.listen(process.env.PORT || 8000, () =>{
+        console.log(`Server is running at port : ${process.env.PORT}`);
+    })
+})
+.catch((err)=>{
+    console.log("mongo db connenction failed");
+})
 
 // whenever you use iffy somewhere there is semicolon in start
 
